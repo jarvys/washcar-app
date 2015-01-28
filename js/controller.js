@@ -13,7 +13,7 @@
 	};
 	
     //服务器主机与端口
-     var Host = "http://192.168.1.101:8080/";
+     var Host = "http://devel.jarvys.me/";
     //POST请求接口
     function post(path, data, success, error){
 	    $.ajax({
