@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.carservice.washcar" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CarService</name>
+   
+    <preference name="KeepRunning" value="false"/>
+    <preference name="Fullscreen" value="true" />
+    <preference name="KeyboardShrinksView" value="true"/>
+	<preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+	<preference name="Orientation" value="portrait" />
+	
+    <content src="index.html" />
+    <access origin="*" />
+</widget>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		
+        <title>CarSerive</title>
+    </head>
+    <body>
+	<script type="text/javascript">
+	    if(navigator.userAgent.match(/iP[ha][od].*OS 7/)) {
+	        document.addEventListener("touchstart", function(e){
+		        var target = e.target;
+				while (target.nodeType != 1) target = target.parentNode;
+				if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA'){
+					e.preventDefault();
+				}
+		    });
+        } 
+</script>
+        <div class="app" id="page-container">
+            <div class="page p-hide" id="homepage">
+			    <div class="p-home">
+                    <header class="app-header">预约洗车</header>
+				    <div class="banner-left">
+                      <div class="des">
+                          <h1 class="title">移动汽车美容专家</h1>
+                          <p>56个工序专业洗车 </p>
+                          <p>手机下单，上门服务 </p> 
+                          <p>首单体验价<span style="font-size:30px;color:#ee6263">￥9.9</span> </p>
+                      </div>
+				   </div>
+				   
+				   <div class="content">
+				      <ul class="home-entry">
+					    <li class="item" data-s="0">
+                          <div class="icon yuyue"></div>
+						  <p class="label">预约洗车<p>
+                          <div class="arrow"></div>
+						</li>
+						<li class="item" data-s="1">
+                           <div class="icon myorder"> <span id="my-order-count" style="display:none"></span> </div>
+						   <p class="label">我的订单</p>
+                           
+                           <div class="arrow"></div>
+						</li>
+						<li class="item" data-s="2" >
+                           <div class="icon account"></div>
+						   <p class="label">账户充值</p>
+						   <!--p class="sec">目前账户余额（<span id="my-account-balance">0</span>）元</p-->
+						   <!--p class="sec">预充值享受6-8折</p-->
+                           
+                           <div class="zhekou">
+                           </div>
+                           <div class="arrow"></div>
+						</li>
+					  </ul>
+				   </div>
+				</div>
+			</div>
+			<div id="c-loading">
+			    <div class="sprite-con">
+				    <div class="sprite"></div>
+					<p>正在加载...</p>
+				</div>
+			</div>
+        </div>
+		
+		<div id="alert-dialog" class="alert-dialog" style="display:none">
+		    <div class="ctn">
+			   <p class="text"></p>
+			   <div class="tools main-btn">
+			      <button>确定</button>
+			   </div>
+			</div>
+		</div>
+        
+        <div id="car-category" class="popup" style="display: none">
+           <div class="carinfo-container ctn">
+               <div class="carinfo-input">
+                   <div class="license">
+                      <input type="text"  placeholder="车牌照号"></input>
+                   </div>
+                   
+                   <div class="bm-tl">
+				      <div class="sel">
+						  <select id="brand" class="menu-icon">
+						  </select>
+					  </div>
+					  <div class="sel">
+						  <select id="model" class="menu-icon">
+						  </select>
+					  </div>
+                   </div>
+                   <div class="color">
+                      <input type="text" placeholder="车辆颜色" readonly="true"></input>
+					  <div class="menu-icon"></div>
+                   </div>
+               </div>
+			   <div class="tools main-btn">
+			       <button class="ok">确定</button>
+			   </div>
+			   
+			   <div class="close"></div>
+           </div>
+        </div>
+		
+		<div id="date-dialog" class="popup" style="left: -200%">
+		    <div class="date-selector">
+			    <div class="input-time">
+                   <div id="date-con" class="date">
+				       <div class="list">
+					       <ul>
+							  <li></li>
+						   </ul>
+					   </div>
+				   </div>
+				   <div id="time-con" class="time">
+				       <div class="list">
+					       <ul>
+						   </ul>
+					   </div>
+				   </div>
+				   <div id="second-con" class="second">
+				       <div class="list">
+					       <ul></ul>
+					   </div>
+				   </div>
+				   
+				   <div class="split l1"></div>
+				   <div class="split l2"></div>
+                </div>
+			    <div class="tools main-btn">
+			       <button class="ok">确定</button>
+			    </div>
+				
+				 <div class="close"></div>
+		    </div>
+		</div>
+        
+        <div id="color-selector" class="popup" style="left: -200%;">
+            <div class="color-selector">
+                <h3>全部颜色</h3>
+                <ul>
+                   <li><em style="background-color:#000000;"></em><span>黑色</span></li>
+                   <li><em style="background-color:#ffffff;border: 1px solid #cccccc;"></em><span>白色</span></li>
+                   <li><em style="background-color:#bec3c4;"></em><span>银灰色</span></li>
+                   <li><em style="background-color:#595959;"></em><span>深灰色</span></li>
+                   <li><em style="background-color:#e60012;"></em><span>红色</span></li>
+                   <li><em style="background-color:#00a1e9;"></em><span>蓝色</span></li>
+				   <li><em style="background-color:#009944;"></em><span>绿色</span></li>
+				   
+				   <li><em style="background-color:#fff33f;"></em><span>黄色</span></li>
+				   
+				   <li><em style="background-color:#cd7f32;"></em><span>香槟色</span></li>
+				   <li><em style="background-color:#4f2f4f;"></em><span>紫色</span></li>
+                </ul>
+            </div>
+        </div>
+		
+		<div id="specify-requirement" class="popup" style="display: none">
+		    <div class="requirement">
+                <div>
+				   <textarea placeholder="特殊需求" autofocus="false"></textarea>
+				   <div class="main-btn">
+				      <button>确定</button>
+				   </div>
+				</div>
+				<div class="close"></div>
+            </div>
+		</div>
+		
+		
+        <script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/underscore.js"></script>
+        <script type="text/javascript" src="js/event.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript" src="js/calendar.js"></script>
+		<script type="text/javascript" src="js/fastclick.js"></script>
+		
+        <script type="text/javascript" src="js/UI.js"></script>
+
+        <script type="text/javascript" src="js/controller.js"></script>
+        
+        <script id="temp-service-info" type="text/tpl">
+            <div class="page p-hide" id="page-service-info">
+                <div class="p-service-info">
+                    <header class="app-header"><span class="back"></span>选择服务项目</header>
+                    <div class="content">
+                        <ul>
+                           <li class="item" data-service="1">
+                               <p class="tt">清洗外观 <span class="hui"></span></p>
+                               <p class="sec">首单<i class="c-main"> 9.9 </i>元起</p>
+							   
+							   <div class="checkbox"></div>
+                           </li>
+                           <li class="item" data-service="2">
+                               <p class="tt">清洗内饰 <span class="hui"></span></p>
+                               <p class="sec">首单<i class="c-main"> 9.9 </i>元起</p>
+							   
+							   <div class="checkbox"></div>
+                           </li>
+                           <li class="item" data-service="3">
+                               <p class="tt">打蜡 <span class="hui"></span></p>
+                               <p class="sec">首单<i class="c-main"> 59.9 </i>元起</p>
+							   
+							   <div class="checkbox"></div>
+                           </li>
+                           <li class="item" data-service="4">
+                               <p class="tt">划痕修复 <span class="hui"></span></p>
+                               <p class="sec">首单<i class="c-main"> 59.9 </i>元起</p>
+							   
+							   <div class="checkbox"></div>
+                           </li>
+                           <li class="item part" data-service="5">
+                               特殊要求
+							   <div>
+							       <input type="text" placeholder="输入您的需求" readonly="true"></input>
+							   </div>
+                           </li>
+                        </ul>
+                        <div class="main-btn" style="margin-top: 10px">
+                           <button class="next">下一步</button>
+                        </div>
+                        <div id="pop-bottom" style="height: 240px;display:none;"></div>
+                    </div>
+                </div>            
+            </div>
+        </script>
+        
+        <script id="temp-car-info" type="text/tpl">
+            <div class="page p-hide" id="page-car-info">
+			   <div class="p-car-info">
+			       <header class="app-header"><span class="back"></span>车辆信息</header>
+                   <div class="content" id="carinfo-content">
+				      <div  style="overflow: hidden;">
+                      <ul class="car-info">
+					    <div class="card-title"><span class="flag"></span>服务车辆信息</div>
+                        <li class="item" data-item="0">
+                           <p class="sec placeholder">
+						      <span class="lc">车牌号</span>
+							  <span class="br">品牌型号</span>
+							  <span class="cl">颜色</span>
+						   </p>
+						   
+						   <div class="edit"></div>
+                        </li>
+                        <li class="item adr" data-item="1">
+                           <p class="sec placeholder">新增地址</p>
+                           <input type="text" name="address" class="sec" style="display:none"></input>
+						   
+						   <div class="edit"></div>
+                        </li>
+                        <li class="item" data-item="2">
+                           <p class="placeholder sec datetime">洗车时间</p>
+						   
+						   <div class="edit"></div>
+                        </li>
+                      </ul>
+					  
+					  <ul id="selected-service-list">
+					    <div class="card-title"><span class="flag"></span>订单</div>
+                        <div class="list">
+						    
+						</div>
+						<div id="service-total-des" class="c-main">
+						
+						</div>
+                      </ul>
+                       <div class="tools main-btn">
+                           <button class=" submit">提交订单</button>
+                        </div>
+                   </div>
+				   </div>
+               </div>
+			</div>
+        </script>
+        
+		
+		<script id="account-register" type="text/tpl">
+		    <div class="page p-hide" id="page-account">
+			   <div class="p-account">
+			       <header class="app-header"><span class="back"></span>注册手机号</header>
+                   <div class="mobile">
+                       <input id="cellphone" type="text" placeholder="请输入手机号"></input>
+                   </div>
+				   
+				   <div class="vcode">
+				       <input type="text" placeholder="输入验证码"></input>
+					   <button class="yellow-btn">获取验证码</button>
+                   </div>
+				   <div class="tools main-btn">
+					   <button class="ok">确认</button>
+				   </div>
+               </div>
+			</div>
+		</script>
+		
+		
+		<script id="tpl-pay-page" type="text/tpl">
+            <div class="page p-hide" id="page-pay">
+			    <div class="p-pay">
+				    <header class="app-header"><span class="back"></span>支付</header>
+                    <p class="c-main" style="font-size: 16px;margin: 20px 10px;"> 
+					    共需支付：<span id="pay-total-num"> 0 </span> 元
+				    </p>
+                    
+                    <div class="content">
+                       <ul>
+					      <li class="item pay-1 checked" item="1">
+						     <p>使用账户余额</p>
+							 <span class="sec"><em class="account-limit"> 0 </em>元</span>
+							 
+							 <div class="checkbox"></div>
+						  </li>
+						  <li class="item pay-2" item="2">
+						     上门收取现金
+							 <div class="checkbox"></div> 
+					      </li>
+					   </ul>
+                       <div class="main-btn">
+                           <button class="ok">确定支付</button>
+                        </div>
+                    </div>
+                </div>
+			</div>
+        </script>
+        
+        <script id="tpl-myorder-item" type="text/tpl">
+            <%for(var i=0; i < list.length; i++){%>
+            <li class="item" data-item="0">
+                <!--h2><%=list[i].statusText%></h2-->
+             
+                <p class="car">
+				    <span class="label sec">车辆信息:</span>
+                    <span> <%=list[i].brand%> </span>
+                    <span> <%=list[i].model%></span>
+                    <span> <%=list[i].license%></span>
+                </p>
+				
+                <p><span class="label sec">订单号:</span> <%=list[i].orderNumber%></p>
+				
+				<p><span class="label sec">预约时间:</span> <%=list[i].serviceTime%></p>
+				<p><span class="label sec">订单金额:</span> <span class="c-main"> ¥ <%=list[i].totalPrice%></span></p>
+				<div class="split"></div>
+				<p><span class="label sec">技师:</span> <%=list[i].worker%></p>
+				<p><span class="label sec">联系电话:</span> <%=list[i].worker_cellphone%></p>
+				
+				<div class="split"></div>
+				
+				<p><span class="label sec">订单状态:</span> <span style="color:red;"> <%=list[i].statusText%><span></p>
+            </li>
+            <%}%>
+        </script>
+        
+        <script id="tpl-my-order" type="text/tpl">
+            <div class="page p-hide" id="page-myorder">
+			   <div class="p-myorder">
+                   <header class="app-header"><span class="back"></span>我的订单</header>
+				   <div style="position: relative;z-index: 100;">
+				      <ul class="myorder-tab">
+					     <li class="checked" data-type="1">有效 <div class="line"></div></li>
+						 <li data-type="2">待付款 <div class="line"></div></li>
+						 <li data-type="3">交易中 <div class="line"></div></li>
+						 <li data-type="4">完成 <div class="line"></div></li>
+					  </ul>
+				   </div>
+				   <div class="content" id="myorder-sroller">
+                      <ul id="myorder-items"></ul>
+                       
+                   </div>
+               </div>
+			</div>
+        </script>
+        
+        <script id="tpl-myaccount" type="text/tpl">
+            <div class="page p-hide" id="page-myaccount">
+			    <div class="p-myaccount">
+				    <header class="app-header"><span class="back"></span>我的账户</header>
+					
+                    <div class="my-account-ctn">
+					   <div style="position: relative;overflow:hidden;">
+							<p><span><%=accountName%></span></p>
+							<p>账户余额：<span class="c-main"> <span class="account-limit">0</span> 元</span></p>
+							
+							<div style="margin-top: 9px;display: -webkit-box;margin-right: 10px;margin-bottom: 10px;">
+							   <input class="card-input" type="password" placeholder="输入充值卡密码"></input>
+							   <button class=" charge-btn">充值</button>
+							</div>
+						</div>
+					</div>
+				    <div class="content card-list">
+                      <ul>
+                        <li class="item" data-item="0">
+						   <p class="title">充值卡 <span class="zhe"></span></p>
+						   <p class="ctn">
+						      <span class="pri c-main">
+						          <span class="num">89</span> 元
+							  </span> 
+							  <span class="sec">100元</span>
+							</p>
+							
+							<button class="btn-qiang">立即抢购</button>
+                        </li>
+                        <li class="item adr" data-item="1">
+						    <p class="title">充值卡 <span class="zhe"></span></p>
+							<p  class="ctn">
+							    <span class="pri c-main">
+								    <span class="num">89</span> 元
+							    </span> 
+								<span class="sec">100元</span>
+							</p>
+							
+							<button class="btn-qiang">立即抢购</button>
+                        </li>
+                        <li class="item" data-item="2">
+						    <p class="title">充值卡 <span class="zhe"></span></p>
+							<p class="ctn">
+							    <span class="pri c-main">
+								    <span class="num">89 </span> 元
+								</span> 
+								<span class="sec">100元</span>
+							</p>
+							
+							<button class="btn-qiang">立即抢购</button>
+                        </li>
+                      </ul>
+					</div>
+                </div>
+			</div>
+        </script>
+    </body>
+</html>

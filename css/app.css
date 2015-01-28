@@ -1,0 +1,894 @@
+button:active,
+button:focus{
+   outline: none;
+}
+
+button.active{
+   background: #7FD6E5 !important;
+}
+
+.btn-qiang.active{
+   background: #FF6633 !important;
+}
+.charge-btn.active{
+   background: #ddd !important;
+}
+
+.app {
+    width: 100%;
+	height: 100%;
+	position: relative;
+}
+.page{
+   position: relative;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+}
+
+.page.p-hide{
+   display: none;
+}
+.page.p-show{
+   display: block;
+}
+
+.tools{
+   text-align: center;
+   margin: 0 10px;
+}
+
+.main-btn{
+   margin: 0;
+}
+.main-btn button{
+   -webkit-appearance: none;
+   background: #2abec8;
+   color: #fff;
+   border: none;
+   width: 100%;
+   line-height: 50px;
+   font-size: 16px;
+}
+
+.yellow-btn{
+   -webkit-appearance: none;
+   background: #FFA500;;
+   color: #fff;
+   border: none;
+   line-height: 37px;
+   font-size: 16px;
+   vertical-align: middle;
+}
+
+.content{
+  margin: 10px;
+}
+
+.content .item{
+   position: relative;
+   height: 80px;
+   width: auto;
+   margin: 10px 0;
+   border: none;
+   border: 1px solid #ddd;
+   background: #fff;
+   margin-bottom: 0;
+}
+
+.content .item .checkbox{
+   width: 24px;
+	height: 24px;
+	background-image: url(../img/checkbox.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position: absolute;
+	top: 50%;
+	margin-top: -12px;
+	right: 10px;
+}
+.content .item.checked .checkbox{
+   background-image: url(../img/checkbox-checked.png);
+}
+
+.back{
+   background: url(../img/back.png) no-repeat;
+   width: 34px;
+   height: 100%;
+   display: inline-block;
+   vertical-align: middle;
+   position: absolute;
+   left:0;
+   top: 0;
+   height: 45px;
+   background-size: 17px 19px;
+   background-position:center;
+   cursor: pointer;
+}
+
+.menu-icon{
+   background-image: url(../img/menu-icon.png);
+	background-size: 13px 8px;
+	background-repeat: no-repeat;
+	background-position-x: 93%;
+	background-position-y: center;
+}
+
+/*popup css*/
+
+.popup{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   background: rgba(0, 0, 0, .5);
+   z-index: 1000;
+}
+
+.popup .ctn{
+   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   background: #fff;
+}
+
+.close{
+  background-image: url(../img/close.png);
+  background-repeat: no-repeat;
+  background-size: 13px 13px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 1000;
+  background-position: center;
+}
+
+.carinfo-container{
+   width: 300px;
+   height: 262px;
+   margin-top: -131px;
+   margin-left: -150px;
+}
+
+.carinfo-container .close,
+.date-selector .close{
+   right: 3px;
+   top: 2px;
+}
+
+.alert-dialog{
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, .6);
+}
+.alert-dialog .ctn{
+   width: 280px;
+   position: absolute;
+   margin-left: -140px;
+   left: 50%;
+   height: 120px;
+   background: #fff;
+   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+   top: 50%;
+   margin-top: -60px;
+}
+
+.alert-dialog .text{
+  margin: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.alert-dialog .tools{
+  width: 260px;
+  position: absolute;
+  bottom: 0;
+  margin-left: -130px;
+  left: 50%;
+  margin-bottom: 10px;
+}
+
+
+.date-selector{
+   position: absolute;
+   width: 300px;
+   height: 230px;
+   padding-top: 20px;
+   top: 50%;
+   margin-top: -100px;
+   left: 50%;
+   margin-left: -150px;
+   background: #fff;
+   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.date-selector .split{
+   position: absolute;
+   width: 100%;
+}
+
+.date-selector .split.l1{
+   top: 30px;
+}
+.date-selector .split.l2{
+   top: 70px;
+}
+
+.color-selector{
+   position: absolute;
+   width: 250px;
+   height: 452px;
+   top: 50%;
+   margin-top: -230px;
+   left: 50%;
+   margin-left: -125px;
+   background: #fff;
+   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+/*汽车信息选择器 css*/
+.carinfo-input{
+   text-align: center;
+}
+
+.carinfo-input .license{
+   margin-top: 30px;
+}
+
+.carinfo-input input{
+   width: 248px;
+   margin-top: 10px;
+   border: 1px solid #aaa;
+}
+
+.carinfo-input .sel{
+   width: 124px; 
+   display: inline-block;
+   border: 1px solid #aaa;
+   margin-right: 8px;
+   height: 36px;
+}
+.carinfo-input select{
+   width: 100%; 
+   height: 100%;
+   -webkit-box-sizing: border-box;
+   -webkit-border-radius: 0;
+   display: block;
+   border: none;
+   font-size: 14px;
+   line-height: 20px;
+   background-color:#fff;
+   -webkit-appearance: none;
+}
+.carinfo-input .bm-tl{
+   margin-top: 10px;
+}
+.carinfo-input .sel:last-child{
+   margin-right: 0px;
+}
+.carinfo-input .color{
+   position: relative;
+}
+.carinfo-input .color .menu-icon{
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  top: 5px;
+  right: 27px
+}
+
+#car-category .tools{
+   margin: 20px;
+}
+
+
+.color-selector h3{
+   line-height: 40px;
+font-size: 15px;
+font-weight: bold;
+text-indent: 10px;
+border-bottom: 1px solid #eee;
+}
+.color-selector ul li{
+   line-height: 40px;
+   padding-left: 15px;
+   border-bottom: 1px solid #eee;
+}
+
+.color-selector ul li em{
+   width: 16px;
+   height: 16px;
+   display: inline-block;
+   vertical-align: middle;
+   margin: -4px 10px 0 0;
+}
+
+
+.arrow{
+   width: 10px;
+   height: 17px;
+   background: url(../img/arrow.png) no-repeat;
+   background-size: 100%;
+}
+
+.app-header{
+    height: 45px;
+    background: #2abec8;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+	overflow: hidden;
+}
+
+.c-main{
+    color: #2abec8;
+}
+
+/*home css*/
+
+.p-home .title{
+   font-size: 20px;
+   margin: 15px 0 15px 0;
+   text-align: center;
+}
+.banner-left{
+  position: relative;
+  height: 155px;
+  overflow: hidden;
+  background: url(../img/banner.png) no-repeat;
+  background-size: 320px 165px;
+  background-position: 0 center;
+  background-color: #fff;
+}
+.banner-left .bn{
+   width: 100%;
+}
+.banner-left .des{
+   position: absolute;
+   top: 0;
+   right: 15px;
+   text-align: right;
+}
+.banner-left p{
+   line-height: 28px;
+   font-size: 15px;
+}
+
+.home-entry .icon{
+   width: 32px;
+   height: 100%;
+   background-repeat: no-repeat;
+   background-size: 100%;
+   display: inline-block;
+   background-position: center;
+   vertical-align: middle;
+   position: relative;
+   margin: 0 10px;
+}
+
+.p-home .content .item{
+   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+   border: none;
+}
+.p-home .content .item:first-child{
+   margin-top: 0;
+}
+
+.home-entry li .label{
+   display: inline-block;
+   vertical-align: middle;
+   font-size: 16px;
+}
+
+.home-entry .icon.yuyue{
+   background-image: url(../img/yuyue.png);
+}
+.home-entry .icon.myorder{
+   background-image: url(../img/myorder.png);
+}
+.home-entry .icon.account{
+   background-image: url(../img/account.png);
+}
+
+.home-entry .item .arrow{
+   position: absolute;
+   top: 32px;
+   right: 15px;
+}
+
+.home-entry .item .zhekou{
+   position: absolute;
+   width: 50px;
+   height: 46px;
+   background-size: 100%;
+   background-image:url(../img/zhekou.png);
+   background-repeat: no-repeat;
+   top: 0;
+   right: 0;
+}
+
+#my-order-count{
+   background: #ee6263;
+    position: absolute;
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    text-indent: 0;
+    line-height: 25px;
+	border: 1px solid #eee;
+    color:#fff;
+    right: -9px;
+    top: 10px;
+}
+#page-car-info{
+   background: #fff;
+}
+
+.p-car-info .content{
+   position: absolute;
+   width: 100%;
+   margin: 0;
+   top: 45px;
+   bottom: 0px;
+   overflow: hidden;
+}
+.p-car-info .content .item{
+    -webkit-box-shadow: none;
+	box-shadow: none;
+	border-bottom: 1px solid #eee;
+	border-left: 1px solid #eee;
+	border-right: 1px solid #eee;
+	margin: 0;
+	overflow: hidden;
+	height: 50px;
+	border-top: none;
+}
+
+.p-car-info .tools{
+    margin: 0 10px;
+	padding-bottom: 10px;
+}
+
+
+.p-car-info .content ul{
+   background: #fff;
+   margin: 10px;
+}
+.p-car-info .content ul .card-title{
+   line-height: 40px;
+	background: #eee;
+	font-size: 16px;
+	
+}
+.p-car-info .content ul .card-title .flag{
+   display: inline-block;
+	width: 3px;
+	height: 40px;
+	background: #2abec8;
+	vertical-align: top;
+	margin-right: 10px;
+}
+
+.p-car-info  .placeholder{
+    line-height: 50px;
+	text-indent: 10px;
+}
+
+.p-car-info .item .edit{
+   position: absolute;
+   width: 50px;
+   height: 100%;
+   top: 0;
+   right: 0;
+   background-image: url(../img/edit.png);
+   background-repeat: no-repeat;
+   background-size: 17px 17px;
+   background-position: center;
+}
+
+.p-car-info [name="address"]{
+   width: 100%;
+   height: 50px;
+   border: none;
+   padding: 0 10px;
+   display: block;
+}
+#selected-service-list{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+#selected-service-list .item p{
+  line-height: 50px;
+  text-indent: 10px;
+  display: block;
+  -webkit-box-flex: 1;
+}
+#selected-service-list .item
+{
+  display: -webkit-box;
+}
+#selected-service-list .item span{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  margin-top: 14px;
+}
+#service-total-des{
+  border: 1px solid #eee;
+  border-top: none;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+}
+
+/*服务项目*/
+
+.p-service-info .content .item{
+   height: 61px;
+   padding: 6px;
+   margin-top: 5px;
+}
+
+.content .item .hui{
+   display: inline-block;
+   width: 18px;
+   height: 16px;
+   vertical-align: middle;
+   background: url(../img/hui.png);
+   background-size: 100%;
+   margin-top: -4px;
+}
+
+
+
+.p-service-info .content .item .c-main{
+   font-size: 18px;
+}
+
+.p-service-info .content .item .tt{
+   font-size: 18px;
+}
+
+.p-service-info .content .item.part{
+   height: 83px;
+   font-size: 18px;
+}
+.p-service-info .content .item.part div{
+   border: 1px solid #eee;
+   margin-top: 6px;
+   overflow: hidden;
+}
+.p-service-info .content .item.part input{
+   display: block;
+   border: none;
+   width: 100%;
+}
+
+
+
+/*注册手机页*/
+.input-time{
+   position: relative;
+   width: 100%;
+   height: 121px;
+}
+
+.input-time .date,
+.input-time .time,
+.input-time .second{
+   position: absolute;
+   height: 100%;
+   width: 42%;
+}
+
+.input-time .date{
+   left: 0px;
+}
+.input-time .time{
+   left: 50%;
+   width: 25%;
+}
+.input-time  .time ul li,
+.input-time  .second ul li{
+   padding-left: 0;
+}
+.input-time .second{
+   right: 5px;
+   width: 24%;
+}
+
+.date ul li,
+.time ul li,
+.second ul li{
+   line-height: 40px;
+   padding-left: 20px;
+   text-align: center;
+}
+
+#date-dialog .tools{
+   margin: 20px;
+}
+
+.p-account .label{
+   line-height: 30px;
+}
+.p-account .mobile{
+   margin: 10px;
+   text-align: center;
+   border: 1px solid #ddd;
+   overflow: hidden;
+}
+.p-account .mobile input{
+  width: 100%;
+  border: none;
+}
+
+.p-account .vcode{
+  margin: 10px;
+}
+.p-account .main-btn{
+  margin: 0 10px;
+}
+
+.p-account .vcode input{
+  border: 1px solid #ddd;
+  margin: 0;
+  padding: 0 0 0 10px;
+  width: 56%;
+}
+
+.p-account .vcode .yellow-btn{
+  width: 39%;
+  margin-left: -6px;
+  float: right;
+}
+.p-account .vcode .yellow-btn:disabled{
+  background: #aaa;
+}
+
+.sec{
+  color: #aaa;
+}
+
+.split{
+  height: 1px;
+  background: #ddd;
+  margin: 10px 0;
+}
+
+#myorder-items .item{
+   height: auto;
+   padding: 10px 0;
+   font-size: 16px;
+   line-height: 30px;
+   -webkit-box-shadow: none;
+   border: 1px solid #ddd;
+   margin: 10px;
+}
+#myorder-items .item .label{
+   padding-left: 10px;
+   padding-right: 10px;
+}
+
+.myorder-tab {
+   text-align: center;
+   background: #fff;
+   border-bottom: 1px solid #ddd;
+}
+.myorder-tab li{
+   display: inline-block;
+   line-height: 40px;
+   font-size: 16px;
+   margin: 0 15px;
+   position:relative;
+}
+
+.myorder-tab li .line{
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 2px;
+   background: #2abec8;
+   display: none;
+}
+.myorder-tab li.checked .line{
+   display: block;
+}
+
+.p-myorder .content{
+   top: 85px;
+	bottom: 0px;
+	margin: 0;
+	position: absolute;
+	width: 100%;
+}
+
+
+/*支付界面*/
+#page-pay .content .item{
+   height: 50px;
+   font-size: 16px;
+   line-height: 50px;
+   padding-left: 10px;
+}
+
+#page-pay .content .pay-1 p{
+   float: left;
+}
+#page-pay .content .pay-1 span{
+   float: right;
+   margin-right: 42px;
+}
+#page-pay .main-btn{
+   margin-top: 10px; 
+}
+
+.my-account-ctn{
+   font-size: 18px;
+   padding-left: 10px;
+   position: relative;
+   background: url(../img/myaccount-bg.png);
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}
+
+.my-account-ctn img{
+   position: absolute;
+   top: 0;
+   left:0;
+   width: 100%;
+}
+
+.my-account-ctn p{
+  padding-top: 9px;
+  color: #fff;
+}
+
+.charge-btn{
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  height: 36px;
+  display: inline-block;
+  width: 80px;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  display: block;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.my-account-ctn input{
+  border: none;
+  width: 210px;
+  vertical-align: middle;
+  outline: 0;
+  display: block;
+-webkit-box-flex: 1;
+}
+
+.card-list{
+  font-size: 16px;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.card-list .item{
+   height: 67px;
+}
+
+.card-list .item .title{
+  padding-left: 10px;
+  padding-top: 6px;
+}
+.card-list .item .zhe{
+  display: inline-block;
+  width: 18px;
+  height: 16px;
+  background: url(../img/zhe.png);
+  background-size: 100%;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+
+.card-list .item .ctn{
+  padding-left: 10px;
+  padding-top: 2px;
+}
+
+.card-list .item .ctn .num{
+  font-size: 24px;
+}
+.card-list .item .ctn .sec{
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
+.btn-qiang{
+  position: absolute;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  top: 14px;
+  right: 12px;
+  background: #ec5333;
+  color: #fff;
+  height: 38px;
+  font-size: 14px;
+  padding: 0 10px;
+}
+
+#c-loading{
+  position: absolute;
+  top: 45px;
+  width: 100%;
+  bottom: 0;
+  background: rgba(0, 0, 0, .6);
+  z-index: 10000;
+  background: #fff;
+  display: none;
+}
+
+#c-loading .sprite-con{
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  left: 50%;
+  top: 50%;
+  margin-left: -60px;
+  margin-top: -60px;
+  text-align: center;
+}
+
+#c-loading .sprite-con .sprite{
+  width: 36px;
+  height: 36px;
+  background-image: url(../img/loading.gif);
+  background-size: 100%;
+  display: inline-block;
+}
+
+.requirement{
+   position: absolute;
+   left: 50%;
+   width: 250px;
+   margin-left: -125px;
+   top: 100px;
+   background: #fff;
+}
+
+.requirement .main-btn{
+  margin: 20px;
+}
+.requirement textarea{
+   width: 197px;
+   margin: 20px;
+   height: 92px;
+   margin-bottom: 0px;
+   margin-top: 40px;
+   padding: 5px;
+   border: 1px solid #ddd;
+}
+.requirement .close{
+   right: 5px;
+   top: 5px;
+}
+.requirement .main-btn button{
+  height: 40px;
+  line-height: 40px;
+}
+
+
+
